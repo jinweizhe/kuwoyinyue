@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    基础URL：http://101.43.173.17:9090 （网站地址）<br><br>
+
+    搜索：<br>
+    key=输入内容，空为大家都在搜<br>
+    /api/www/search/searchKey?key=&httpsStatus=1<br><br>
+
+    <h3>推荐</h3>
+    轮播图：<br>
+    /api/www/banner/index/bannerList?httpsStatus=1<br>
+    推荐歌单：<br>
+    标签：(里面带有id)<br>
+    /api/www/playlist/index/tags?httpsStatus=1<br>
+    每日推荐：<br>
+    /api/www/rcm/index/playlist?id=rcm&pn=1&rn=5&httpsStatus=1<br>
+    id：翻唱:1848、网络:621、伤感:146、欧美:35（不同页面id不一样）<br>
+    /api/www/classify/playlist/getTagPlayList?id=1848&pn=1&rn=5&httpsStatus=1<br><br>
+
+    精选活动图片：<br>
+    /api/www/activity/index/activityList?httpsStatus=1<br><br>
+
+    排行榜：<br>
+    /api/www/bang/index/bangList?httpsStatus=1<br><br>
+
+    歌手推荐：<br>
+    标签：<br>
+    /api/www/artist/index/tags?httpsStatus=1<br>
+    category：华语:11、欧美:13、日韩:12、组合:16<br>
+    /api/www/artist/artistInfo?category=13&pn=1&rn=6&httpsStatus=1<br><br>
+
+    主播电台：<br>
+    /api/www/radio/index/radioList?httpsStatus=1<br><br>
+
+
+    <h3>排行榜</h3>
+    左侧栏：<br>
+    /api/www/bang/bang/bangMenu?httpsStatus=1<br><br>
+
+    右侧：<br>
+    bangId：左侧栏数据中的<br>
+    /api/www/bang/bang/musicList?bangId=17&pn=1&rn=30&httpsStatus=1<br><br>
+
+    热门评论：<br>
+    id为右侧的bangId=的值<br>
+    /comment?type=get_rec_comment&f=web&page=1&rows=20&digest=2&sid=17&uid=0&prod=newWeb&httpsStatus=1<br><br>
+
+    最新评论：<br>
+    同上<br>
+    /comment?type=get_comment&f=web&page=1&rows=20&digest=2&sid=17&uid=0&prod=newWeb&httpsStatus=1<br><br>
+
+    最新评论和热门评论里面的u_name字段需要使用decodeURI进行解码<br><br>
+
+
+    音乐详情：<br>
+    mid为音乐列表中的那个音乐的rid<br>
+    /api/www/music/musicInfo?mid=72846534&httpsStatus=1&reqId=8d1d8450-53e9-11ec-9fa7-d7b7d36c5792<br><br>
+
+    获取音乐mp3文件地址：<br>
+    mid为音乐列表中的那个音乐的rid<br>
+    /api/v1/www/music/playUrl?mid=201202610&type=music&httpsStatus=1&reqId=f1cc0d91-53e9-11ec-9fa7-d7b7d36c5792<br><br>
+
+    <h3>歌手</h3>
+
+    歌手列表：<br>
+    category=0 全部0 华语男1 华语女2 ...<br>
+    prefix=B 不传就是全部<br>
+    pn=1 当前页数<br>
+    rn=100 每页多少条<br>
+    /api/www/artist/artistInfo?category=0&pn=1&rn=100<br>
+    歌手详情：<br>
+    artistid为歌手列表中某个歌手的id<br>
+    /api/www/artist/artist?artistid=5862212&httpsStatus=1&reqId=4135a490-53ea-11ec-9fa7-d7b7d36c5792<br>
+    歌手音乐列表：<br>
+    artistid为歌手列表中某个歌手的id<br>
+    /api/www/artist/artistMusic?artistid=5862212&pn=1&rn=30&httpsStatus=1&reqId=413fddc0-53ea-11ec-9fa7-d7b7d36c5792<br>
+    歌手专辑列表：<br>
+    artistid为歌手列表中某个歌手的id<br>
+    /api/www/artist/artistAlbum?artistid=5862212&pn=1&rn=28&httpsStatus=1&reqId=975cbce0-53eb-11ec-9fa7-d7b7d36c5792<br>
+    歌手MV列表：<br>
+    artistid为歌手列表中某个歌手的id<br>
+    /api/www/artist/artistMv?artistid=5862212&pn=1&rn=28&httpsStatus=1&reqId=badf2950-53eb-11ec-9fa7-d7b7d36c5792<br><br>
+
+
+
+    <h3>歌单</h3>
+    左侧下拉：<br>
+    /api/www/playlist/getTagList?httpsStatus=1<br><br>
+
+    默认歌单：<br>
+    order=new new：最新 hot：最热<br>
+    /api/www/classify/playlist/getRcmPlayList?pn=1&rn=30&order=new&httpsStatus=1<br><br>
+
+    点击左侧下拉之后的歌单列表：<br>
+    id为点击左侧下拉里面某一项的id<br>
+    /api/www/classify/playlist/getTagPlayList?pn=1&rn=30&id=181&httpsStatus=1&reqId=fc582310-53ea-11ec-9fa7-d7b7d36c5792<br><br>
+
+    <h3>MV：</h3>
+
+    MV:<br>
+    pid：<br>
+    首播:236682871、华语:236682731、日韩:236742444、网络:236682773、<br>
+    欧美:236682735、现场:236742576、热舞:236682777、伤感:236742508、<br>
+    剧情:236742578<br>
+    /api/www/music/mvList?pid=236682871&pn=1&rn=30&httpsStatus=1
+</body>
+
+</html>
